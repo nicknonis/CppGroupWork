@@ -1,0 +1,30 @@
+﻿  subject.cpp
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\subject.h(5): error C3646: 'namea': unknown override specifier
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\subject.h(5): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\subject.h(11): error C2065: 'namea': undeclared identifier
+  student.cpp
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.h(6): error C3646: 'fullname': unknown override specifier
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.h(6): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.h(18): error C3646: 'getTotalScore': unknown override specifier
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.h(18): error C2059: syntax error: '('
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.h(18): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.h(26): error C2061: syntax error: identifier 'string'
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.h(13): error C2065: 'fullname': undeclared identifier
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.cpp(13): error C2084: function 'Student::Student(int)' already has a body
+  c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.h(16): note: see previous definition of '{ctor}'
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.cpp(15): error C2065: 'fullname': undeclared identifier
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.cpp(23): error C2511: 'void Student::addStudent(int,std::string,char)': overloaded member function not found in 'Student'
+  c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.h(4): note: see declaration of 'Student'
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.cpp(24): error C2597: illegal reference to non-static member 'Student::studentno'
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.cpp(25): error C2065: 'fullname': undeclared identifier
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.cpp(26): error C2597: illegal reference to non-static member 'Student::gender'
+  main.cpp
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.h(6): error C3646: 'fullname': unknown override specifier
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.h(6): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.h(18): error C3646: 'getTotalScore': unknown override specifier
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.h(18): error C2059: syntax error: '('
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.h(18): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.h(26): error C2061: syntax error: identifier 'string'
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\student.h(13): error C2065: 'fullname': undeclared identifier
+c:\users\unknown\documents\visual studio 2015\projects\cppassignment\cppassignment\main.cpp(13): error C2660: 'Student::addStudent': function does not take 3 arguments
+  Generating Code...
