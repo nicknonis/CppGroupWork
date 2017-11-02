@@ -40,6 +40,7 @@ public:
 	string getFullName();
 	char getGender();
 	void viewStudent(Student Stud);
+	void viewAllStudent();
 };
 
 // sub student classes

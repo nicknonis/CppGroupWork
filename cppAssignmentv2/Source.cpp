@@ -29,6 +29,7 @@ int main() {
 			break;
 		case '3':
 			//this is add student need to move into student submenu
+			//Student object may need to move out n use vector instead.
 			do {
 				system("CLS");
 				cout << "Enter Student No: ";
@@ -46,8 +47,8 @@ int main() {
 				cin >> another;
 				cout << endl;
 				
-				
 			} while (another != 'n' && another != 'N');
+			
 			break;
 		case '4':
 			system("CLS");
