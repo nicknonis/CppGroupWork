@@ -41,7 +41,11 @@ int main() {
 					cout << "Enter Gender [M/F]: ";
 					cin >> gender;
 				} while (gender != 'm' && gender != 'f' && gender != 'M' && gender != 'F');
+
+				cout << "\nbefore adding student\n ";
 				Student* Stud = &Student(studentno, fullname, gender);
+
+				cout << "\nafter adding student\n ";
 				Stud->addStudent(studentno, fullname, gender);
 				cout << endl;
 				Stud->viewStudent(Stud); //fullname not displaying 

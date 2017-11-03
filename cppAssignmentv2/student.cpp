@@ -15,7 +15,7 @@ using namespace std;
 
 
 Student::~Student() {
-	//cout << "Deconstructing student" << endl; //the echo here is not necessary (debugging purposes only)
+	cout << "Deconstructing student" << endl; //the echo here is not necessary (debugging purposes only)
 }
 
 void Student::addStudent(int stu_no, std::string full_name, char gend) { //add file manipulators here to write straight away...
