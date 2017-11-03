@@ -15,7 +15,7 @@ using namespace std;
 
 
 Student::~Student() {
-	cout << "Deconstructing student" << endl; //the echo here is not necessary (debugging purposes only)
+	//cout << "Deconstructing student" << endl; //the echo here is not necessary (debugging purposes only)
 }
 
 void Student::addStudent(int stu_no, std::string full_name, char gend) { //add file manipulators here to write straight away...
@@ -28,6 +28,7 @@ void Student::addStudent(int stu_no, std::string full_name, char gend) { //add f
 void Student::removeStudent(int stu_no) {
 	
 }
+
 void modifyStudent() {
 
 }
@@ -39,7 +40,10 @@ bool file_exist(const char *fileName) {
 }
 
 void Student::viewStudent(Student* Stud) {
-	cout << "Student No: " << Stud->getStudentNo() << "\nFull Name: " << Stud->getFullName() << "\nGender: " << Stud->getGender() << endl;
+	cout << "Student No: " << Stud->getStudentNo() 
+		<< "\nFull Name: " << Stud->getFullName() 
+		<< "\nGender: " << Stud->getGender() 
+		<< endl;
 	
 }
 

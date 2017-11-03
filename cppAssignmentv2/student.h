@@ -27,7 +27,6 @@ public:
 		gender = gen;
 	}
 
-	~Student(); //student deconstructor	
 
 //DISABLED FOR NOW----------- to be used with vector for linking
 
@@ -46,6 +45,7 @@ public:
 	char getGender();
 	void viewStudent(Student* Stud);
 	void viewAllStudent();
+	~Student(); //student deconstructor	
 };
 
 // sub student classes

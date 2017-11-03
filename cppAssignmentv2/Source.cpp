@@ -41,14 +41,11 @@ int main() {
 					cout << "Enter Gender [M/F]: ";
 					cin >> gender;
 				} while (gender != 'm' && gender != 'f' && gender != 'M' && gender != 'F');
-				cout << "\nAdding student\n"; //debug
 				Student* Stud = &Student(studentno, fullname, gender);
-				cout << "\nAdding student to file\n";//debug
 				Stud->addStudent(studentno, fullname, gender);
-				cout << "\nAdding student done\n";//debug
 				cout << endl;
 				Stud->viewStudent(Stud); //fullname not displaying 
-				//Stud->viewAllStudent(); // this works fine
+				Stud->viewAllStudent(); // this works fine
 				cout << "\nWould you like to enter more[n/N to abort]? ";
 				cin >> another;
 				cout << endl;
