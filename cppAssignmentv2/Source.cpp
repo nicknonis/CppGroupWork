@@ -15,7 +15,7 @@ int main() {
 	string fullname;
 	char gender;
 	char another;
-
+	Student* Stud;
 	//navigation
 	do {
 		system("CLS");
@@ -37,15 +37,22 @@ int main() {
 				cout << "Enter Full Name: ";
 				cin.ignore();
 				getline(cin,fullname);
-				cout << "Enter Gender [M/F]: ";
-				cin >> gender;
-				Student Stud(studentno);
-				Stud.addStudent(studentno, fullname, gender);
+				do{
+					cout << "Enter Gender [M/F]: ";
+					cin >> gender;
+				} while (gender != 'm' && gender != 'f' && gender != 'M' && gender != 'F');
+				cout << "\nAdding student\n"; //debug
+				Student* Stud = &Student(studentno, fullname, gender);
+				cout << "\nAdding student to file\n";//debug
+				Stud->addStudent(studentno, fullname, gender);
+				cout << "\nAdding student done\n";//debug
 				cout << endl;
-				Stud.viewStudent(Stud);
+				Stud->viewStudent(Stud); //fullname not displaying 
+				//Stud->viewAllStudent(); // this works fine
 				cout << "\nWould you like to enter more[n/N to abort]? ";
 				cin >> another;
 				cout << endl;
+				
 				
 			} while (another != 'n' && another != 'N');
 			

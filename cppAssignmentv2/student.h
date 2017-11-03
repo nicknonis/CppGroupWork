@@ -20,9 +20,14 @@ public:
 		studentno = stu_no;
 		fullname = "A";
 		gender = 'M';
-	}//beautiful constructor for student
-	~Student(); //student deconstructor
-	
+	}
+	Student::Student(int stu_no, string f_name, char gen) {
+		studentno = stu_no;
+		fullname = f_name;
+		gender = gen;
+	}
+
+	~Student(); //student deconstructor	
 
 //DISABLED FOR NOW----------- to be used with vector for linking
 
@@ -39,7 +44,7 @@ public:
 	int getStudentNo();
 	string getFullName();
 	char getGender();
-	void viewStudent(Student Stud);
+	void viewStudent(Student* Stud);
 	void viewAllStudent();
 };
 

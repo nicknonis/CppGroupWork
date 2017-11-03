@@ -15,18 +15,16 @@ using namespace std;
 
 
 Student::~Student() {
-	//cout << "Deconstructing student" << endl; //the echo here is not necessary (debugging purposes only)
+	cout << "Deconstructing student" << endl; //the echo here is not necessary (debugging purposes only)
 }
 
 void Student::addStudent(int stu_no, std::string full_name, char gend) { //add file manipulators here to write straight away...
 	ofstream outfile("student.txt", ios_base::app);
-
-	studentno = stu_no;
-	fullname = full_name;
-	gender = gend;
-	outfile << studentno << "," << fullname << "," << gender << "\n";
+	outfile << stu_no << "," << full_name << "," << gend << "\n";
 	outfile.close();
 }
+
+
 void Student::removeStudent(int stu_no) {
 	
 }
@@ -40,8 +38,8 @@ bool file_exist(const char *fileName) {
 	return infile.good();
 }
 
-void Student::viewStudent(Student Stud) {
-	cout << "Student No: " << Stud.getStudentNo() << "\nFull Name: " << Stud.getFullName() << "\nGender: " << Stud.getGender() << endl;
+void Student::viewStudent(Student* Stud) {
+	cout << "Student No: " << Stud->getStudentNo() << "\nFull Name: " << Stud->getFullName() << "\nGender: " << Stud->getGender() << endl;
 	
 }
 
