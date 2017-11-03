@@ -39,7 +39,7 @@ public:
 //--------------------------
 
 	void addStudent(int stu_no, string full_name, char gend);
-	void removeStudent(int stu_no);
+	void removeStudent();
 	int getStudentNo();
 	string getFullName();
 	char getGender();

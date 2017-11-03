@@ -1,17 +1,3 @@
-1234,nabo,M
-123456,elmo world,F
-123456,Hello There,m
-1234566,Mikey Wikey,M
-1234567890,aisodjasidj,F
-83423423,Mutha Brotha,M
-123467,nambo thambo,M
-79898,kddif,m
-8900,Why Diz,F
-123456,Nooo nooo,M
-1234567890,nanananana,m
-12345,Nanananana,M
-12345,Nanab,M
-123747,asdij,M
-12357689,Ntu,F
-123456,Nooooo noooo nooo,M
-123124,Mike,M
+999,Nala Bala,M
+123,Apom balik,F
+12345,Nope,M

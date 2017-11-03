@@ -1,4 +1,3 @@
-﻿  student.cpp
-  Source.cpp
-  Generating Code...
+﻿  Source.cpp
+c:\users\unknown\documents\visual studio 2015\projects\cppgroupwork\cppassignmentv2\source.cpp(18): warning C4101: 'Stud': unreferenced local variable
   cppAssignmentv2.vcxproj -> C:\Users\Unknown\Documents\Visual Studio 2015\Projects\CppGroupWork\Debug\cppAssignmentv2.exe

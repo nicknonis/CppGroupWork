@@ -16,6 +16,7 @@ int main() {
 	char gender;
 	char another;
 	Student* Stud;
+
 	//navigation
 	do {
 		system("CLS");
@@ -24,6 +25,7 @@ int main() {
 		switch (choice)
 		{
 		case '1':
+			//Stud->removeStudent(); //deletes student record from file. 
 			break;
 		case '2':
 			break;
@@ -40,7 +42,7 @@ int main() {
 				do{
 					cout << "Enter Gender [M/F]: ";
 					cin >> gender;
-				} while (gender != 'm' && gender != 'f' && gender != 'M' && gender != 'F');
+				} while (gender != 'm' && gender != 'f' && gender != 'M' && gender != 'F'); //This condition may need refinement..
 
 				cout << "\nbefore adding student\n ";
 				Student* Stud = &Student(studentno, fullname, gender);
@@ -49,7 +51,7 @@ int main() {
 				Stud->addStudent(studentno, fullname, gender);
 				cout << endl;
 				Stud->viewStudent(Stud); //fullname not displaying 
-				Stud->viewAllStudent(); // this works fine
+				//Stud->viewAllStudent(); // this works fine
 				cout << "\nWould you like to enter more[n/N to abort]? ";
 				cin >> another;
 				cout << endl;

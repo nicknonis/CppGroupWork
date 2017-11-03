@@ -25,8 +25,24 @@ void Student::addStudent(int stu_no, std::string full_name, char gend) { //add f
 }
 
 
-void Student::removeStudent(int stu_no) {
-	
+void Student::removeStudent() { // This needs refinement. It works but will cincai delete based on other criteria...
+	string delLine, line;
+	ifstream infile;
+	infile.open("student.txt");
+	ofstream temp;
+	temp.open("temp.txt");
+	cout << "Which entry would you like to remove?[Specify Student Number] ";
+	cin >> delLine;
+	while (getline(infile, line)) {
+		if (strstr(line.c_str(), delLine.c_str()) == nullptr){
+			temp << line << endl;
+		}
+	}
+	temp.close();
+	infile.close();
+	remove("student.txt");
+	rename("temp.txt", "student.txt");
+
 }
 
 void modifyStudent() {
