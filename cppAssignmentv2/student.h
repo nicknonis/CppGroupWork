@@ -12,7 +12,7 @@ class Student {
 	int studentno;
 	string fullname;
 	char gender;
-	vector<SubjectScore> subscore;
+	//vector<SubjectScore> subscore;
 
 public:
 	Student();

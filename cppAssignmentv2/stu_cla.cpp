@@ -9,6 +9,11 @@
 #include <string>
 #include <sstream>
 
+//using these to initialize my structs..
+#include <algorithm>
+#include <iterator>
+#include <vector>
+
 using namespace std;
 
 
@@ -19,6 +24,18 @@ bool file_exist(const char *fileName) {
 
 studcla::studcla() {
 
+
+	char fileName1[] = "student.txt";
+	char fileName2[] = "class.txt";
+	if (file_exist(fileName1) && file_exist(fileName2)) {
+		vector<Student> stu;
+		vector<Class> cla;
+		ifstream studfile("student.txt");
+		ifstream classfile("class.txt");
+		//These would be good but I cant get it to split the file...
+		copy(istream_iterator<string>(studfile), istream_iterator<string>(), back_inserter(stu));
+		copy(istream_iterator<string>(classfile), istream_iterator<string>(), back_inserter(cla));
+	}
 }
 
 

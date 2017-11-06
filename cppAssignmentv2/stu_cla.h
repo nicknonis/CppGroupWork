@@ -9,8 +9,8 @@
 #include <string>
 #include "student.h"
 #include "klass.h"
-#include "subjectscore.h"
-#include "subject.h"
+#include "subjectscore.h"//might migrate to subject transaction table?
+#include "subject.h" // ^^
 using namespace std;
 #endif
 
@@ -18,8 +18,8 @@ using namespace std;
 class studcla { // this is a transaction class.
 	vector<Student> stu;
 	vector<Class> cla;
-	vector<Subject> subby;
-	vector<SubjectScore> subsco;
+	vector<Subject> subby;// migrate to subject transaction table perhaps
+	vector<SubjectScore> subsco;// migrate to subject transaction table perhaps
 
 public:
 	studcla();
