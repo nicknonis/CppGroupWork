@@ -44,7 +44,7 @@ void studentMenu() { //vector<Student> Stud
 				//Stud.push_back(student(studentno, fullname, gender)); 
 				//Stud.stu.push_back(student(studentno, fullname, gender)); // this doesnt work either
 
-				
+				//Student Stud1 = Stud.addStudent(studentno, fullname, gender);
 				Stud->addStudent(studentno, fullname, gender);
 				cout << endl;
 				

@@ -22,8 +22,7 @@ class studcla { // this is a transaction class.
 	vector<SubjectScore> subsco;// migrate to subject transaction table perhaps
 
 public:
-	studcla();
-
+	studcla() {}
 	void addStudent(int stu_no, string full_name, char gend);
 	void removeStudent();
 	void viewStudent();

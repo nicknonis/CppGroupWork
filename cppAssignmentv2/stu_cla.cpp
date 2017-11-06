@@ -10,8 +10,8 @@
 #include <sstream>
 
 //using these to initialize my structs..
-#include <algorithm>
-#include <iterator>
+//#include <algorithm>
+//#include <iterator>
 #include <vector>
 
 using namespace std;
@@ -22,27 +22,52 @@ bool file_exist(const char *fileName) {
 	return infile.good();
 }
 
-studcla::studcla() {
+/*studcla::studcla() { //this stuff is broken...
 
+	string line;
+	string s_stu_no;
+	int stu_no;
+	string f_name;
+	char gen;
 
 	char fileName1[] = "student.txt";
 	char fileName2[] = "class.txt";
+
+
+
 	if (file_exist(fileName1) && file_exist(fileName2)) {
-		vector<Student> stu;
-		vector<Class> cla;
+		
 		ifstream studfile("student.txt");
 		ifstream classfile("class.txt");
 		//These would be good but I cant get it to split the file...
-		copy(istream_iterator<string>(studfile), istream_iterator<string>(), back_inserter(stu));
-		copy(istream_iterator<string>(classfile), istream_iterator<string>(), back_inserter(cla));
+		//copy(istream_iterator<string>(studfile), istream_iterator<string>(), back_inserter(stu));
+		//copy(istream_iterator<string>(classfile), istream_iterator<string>(), back_inserter(cla));
+		while (getline(studfile, line)) {
+			stringstream stude(line);
+			while (getline(stude, s_stu_no, ',')) {
+				stu.push_back(s_stu_no);
+				getline(stude, f_name, ',');
+				stude >> gen;
+
+				stu_no = stoi(s_stu_no);
+
+				
+			}
+		}
+		studfile.close();
+		classfile.close();
+		
 	}
 }
+*/
+
 
 
 void studcla::addStudent(int stu_no, std::string full_name, char gend) { //add file manipulators here to write straight away...
 	ofstream outfile("student.txt", ios_base::app);
 	outfile << stu_no << "," << full_name << "," << gend << "\n";
 	outfile.close();
+	stu.push_back(Student(stu_no,full_name,gend));
 }
 
 

@@ -15,12 +15,7 @@ class Student {
 	//vector<SubjectScore> subscore;
 
 public:
-	Student();
-	Student(int stu_no) : studentno(stu_no) {
-		studentno = stu_no;
-		fullname = "A";
-		gender = 'M';
-	}
+	Student() {}
 	Student(int stu_no, string f_name, char gen) {
 		studentno = stu_no;
 		fullname = f_name;
