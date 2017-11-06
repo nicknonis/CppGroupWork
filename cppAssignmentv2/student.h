@@ -43,7 +43,7 @@ public:
 	int getStudentNo();
 	string getFullName();
 	char getGender();
-	void viewStudent(Student* Stud);
+	void viewStudent();
 	void viewAllStudent();
 	~Student(); //student deconstructor	
 };

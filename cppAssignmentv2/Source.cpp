@@ -50,7 +50,7 @@ int main() {
 				cout << "\nafter adding student\n ";
 				Stud->addStudent(studentno, fullname, gender);
 				cout << endl;
-				Stud->viewStudent(Stud); //fullname not displaying 
+				Stud->viewStudent(); //change to read from file instead... 
 				//Stud->viewAllStudent(); // this works fine
 				cout << "\nWould you like to enter more[n/N to abort]? ";
 				cin >> another;

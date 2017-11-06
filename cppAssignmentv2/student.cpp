@@ -55,11 +55,43 @@ bool file_exist(const char *fileName) {
 	return infile.good();
 }
 
-void Student::viewStudent(Student* Stud) {
-	cout << "Student No: " << Stud->getStudentNo() 
-		<< "\nFull Name: " << Stud->getFullName() 
-		<< "\nGender: " << Stud->getGender() 
-		<< endl;
+void Student::viewStudent() { //WIP search for student n view student (use ID)
+
+	system("CLS");
+	int cur = 0;
+	string line,search;
+	string s_stu_no;
+	int stu_no;
+	string f_name;
+	char gen;
+	ifstream infile("student.txt");
+	infile.open("student.txt");
+	int hello;
+
+	cout << "What would you like to search for ? ";
+	getline(cin, search);
+
+	system("CLS");
+	while (getline(infile, line)){
+		cur++;
+		stringstream stu(line);
+		while (getline(stu, s_stu_no, ',')) {
+			getline(stu, f_name, ',');
+			stu >> gen;
+
+			stu_no = stoi(s_stu_no);
+
+		}
+		if (line.find(search, 0) != string::npos){
+			cout << "Student No: " << stu_no
+				<< "\nFull Name: " << f_name
+				<< "\nGender: " << gen
+				<< endl;
+		}
+	}
+	infile.close();
+	cin >> hello;
+	
 	
 }
 
@@ -87,7 +119,9 @@ void Student::viewAllStudent() {
 				cout << setw(12) << left << gen << endl;
 			}
 		}
+		infile.close();
 	}
+
 }
 
 int Student::getStudentNo() { 
