@@ -1,2 +1,5 @@
 ﻿  Source.cpp
+  Generating Code...
 c:\users\unknown\documents\visual studio 2015\projects\cppgroupwork\cppassignmentv2\source.cpp(48): error C4700: uninitialized local variable 'Stud' used
+  Skipping... (no relevant changes detected)
+  stu_cla.cpp

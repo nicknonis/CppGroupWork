@@ -10,8 +10,8 @@
 #include <sstream>
 
 //using these to initialize my structs..
-//#include <algorithm>
-//#include <iterator>
+#include <algorithm>
+#include <iterator>
 #include <vector>
 
 using namespace std;
@@ -22,7 +22,7 @@ bool file_exist(const char *fileName) {
 	return infile.good();
 }
 
-/*studcla::studcla() { //this stuff is broken...
+/*studcla::studcla() { //this stuff is broken... regex maybe?
 
 	string line;
 	string s_stu_no;
