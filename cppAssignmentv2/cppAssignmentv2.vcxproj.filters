@@ -21,9 +21,33 @@
     <ClCompile Include="student.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="stu_cla.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="klass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="subject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="subjectscore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="student.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stu_cla.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="klass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="subjectscore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="subject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

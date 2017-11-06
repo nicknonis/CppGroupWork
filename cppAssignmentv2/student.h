@@ -12,43 +12,39 @@ class Student {
 	int studentno;
 	string fullname;
 	char gender;
-
+	vector<SubjectScore> subscore;
 
 public:
-
-	Student::Student(int stu_no) : studentno(stu_no) {
+	Student();
+	Student(int stu_no) : studentno(stu_no) {
 		studentno = stu_no;
 		fullname = "A";
 		gender = 'M';
 	}
-	Student::Student(int stu_no, string f_name, char gen) {
+	Student(int stu_no, string f_name, char gen) {
 		studentno = stu_no;
 		fullname = f_name;
 		gender = gen;
-	}
-
-
-//DISABLED FOR NOW----------- to be used with vector for linking
-
-	/*string getTotalScore() {
-		return 0;
-	}
-	char getFinalGrade() {
-		return 0;
-	}*/
-//--------------------------
-
-	void addStudent(int stu_no, string full_name, char gend);
-	void removeStudent();
+	}	
+	~Student(); //student deconstructor	
 	int getStudentNo();
 	string getFullName();
 	char getGender();
-	void viewStudent();
-	void viewAllStudent();
-	~Student(); //student deconstructor	
+
+//DISABLED FOR NOW----------- to be used with vector for linking (link to subject****)
+/*
+virtual string getTotalScore() {
+return score;
+}
+virtual char getFinalGrade() {
+return grade;
+}
+*/
+//--------------------------
+
 };
 
-// sub student classes
+// sub student classes -- need to get some form of loading to get some students here...
 
 class ScienceStudent : public Student {
 public:

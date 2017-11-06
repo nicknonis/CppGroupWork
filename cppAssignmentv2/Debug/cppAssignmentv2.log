@@ -1,3 +1,24 @@
-﻿  Source.cpp
-c:\users\unknown\documents\visual studio 2015\projects\cppgroupwork\cppassignmentv2\source.cpp(18): warning C4101: 'Stud': unreferenced local variable
-  cppAssignmentv2.vcxproj -> C:\Users\Unknown\Documents\Visual Studio 2015\Projects\CppGroupWork\Debug\cppAssignmentv2.exe
+﻿  subjectscore.cpp
+  subject.cpp
+  stu_cla.cpp
+c:\users\unknown\documents\visual studio 2015\projects\cppgroupwork\cppassignmentv2\student.h(15): error C2065: 'SubjectScore': undeclared identifier
+c:\users\unknown\documents\visual studio 2015\projects\cppgroupwork\cppassignmentv2\student.h(15): error C2923: 'std::vector': 'SubjectScore' is not a valid template type argument for parameter '_Ty'
+c:\users\unknown\documents\visual studio 2015\projects\cppgroupwork\cppassignmentv2\student.h(19): error C2512: 'std::vector': no appropriate default constructor available
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(682): note: see declaration of 'std::vector'
+c:\users\unknown\documents\visual studio 2015\projects\cppgroupwork\cppassignmentv2\student.h(24): error C2512: 'std::vector': no appropriate default constructor available
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(682): note: see declaration of 'std::vector'
+  Source.cpp
+c:\users\unknown\documents\visual studio 2015\projects\cppgroupwork\cppassignmentv2\student.h(15): error C2065: 'SubjectScore': undeclared identifier
+c:\users\unknown\documents\visual studio 2015\projects\cppgroupwork\cppassignmentv2\student.h(15): error C2923: 'std::vector': 'SubjectScore' is not a valid template type argument for parameter '_Ty'
+c:\users\unknown\documents\visual studio 2015\projects\cppgroupwork\cppassignmentv2\student.h(19): error C2512: 'std::vector': no appropriate default constructor available
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(682): note: see declaration of 'std::vector'
+c:\users\unknown\documents\visual studio 2015\projects\cppgroupwork\cppassignmentv2\student.h(24): error C2512: 'std::vector': no appropriate default constructor available
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(682): note: see declaration of 'std::vector'
+  klass.cpp
+  Generating Code...
+  Compiling...
+  student.cpp
+c:\users\unknown\documents\visual studio 2015\projects\cppgroupwork\cppassignmentv2\student.h(15): error C2143: syntax error: missing ';' before '<'
+c:\users\unknown\documents\visual studio 2015\projects\cppgroupwork\cppassignmentv2\student.h(15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\unknown\documents\visual studio 2015\projects\cppgroupwork\cppassignmentv2\student.h(15): error C2238: unexpected token(s) preceding ';'
+  Generating Code...
