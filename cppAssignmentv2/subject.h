@@ -1,8 +1,5 @@
-#pragma once
-
 #ifndef subject
 #define subject
-
 #include <string>
 using namespace std;
 #endif
@@ -10,25 +7,31 @@ using namespace std;
 class Subject {
 	int id;
 	string name;
-	char type; // c or s
-
+	char type;
 public:
-	Subject(){}
-	Subject(int ide, string namee, char typee) {
-		id = ide;
-		name = namee;
-		type = typee;
-	}
-	int getid() {
+	Subject() {}
+	Subject(int s_id, string s_name, char s_type);
+	~Subject() {}
+	void displaySubject();
+
+	int getsubjectid() {
 		return id;
 	}
-	string getname() {
+	string getsubjectname() {
 		return name;
 	}
-	char gettype() {
+	char getsubjecttype() {
 		return type;
 	}
-	void setid(int iden);
-	void setname(string name);
-	void settype(char type);
+	void setsubjectid(int s_id) {
+		id = s_id;
+	}
+	void setsubjectname(string s_name) {
+		name = s_name;
+	}
+	void setsubjectype(char s_type) {
+		type = s_type;
+	}
+
+
 };

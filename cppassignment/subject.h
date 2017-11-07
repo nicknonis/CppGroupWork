@@ -1,22 +1,39 @@
+
+
+#ifndef subject
+#define subject
+#include <string>
 using namespace std;
-//subject classes
+#endif
+
 class Subject {
 	int id;
 	string name;
 	char type;
-
 public:
-	Subject() {
-		id = 0;
-		name = "";
-		type = ' ';
-	}
-};
+	Subject() {}
+	Subject(int s_id, string s_name, char s_type);
+	~Subject() {}
+	void displaySubject();
 
-class SubjectScore {
-	double score;
-public:
-	SubjectScore() {
-		score = 0;
+	int getsubjectid() {
+		return id;
 	}
+	string getsubjectname() {
+		return name;
+	}
+	char getsubjecttype() {
+		return type;
+	}
+	void setsubjectid(int s_id) {
+		id = s_id;
+	}
+	void setsubjectname(string s_name) {
+		name = s_name;
+	}
+	void setsubjectype(char s_type) {
+		type = s_type;
+	}
+
+	
 };
