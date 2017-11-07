@@ -15,6 +15,13 @@ class Class{
 
 
 public:
+	Class(){}
+	Class(int cla_id, string c_name,int y_form, char y_grade) {
+		classid = cla_id;
+		classname = c_name;
+		yearform = y_form;
+		yeargrade = y_grade;
+	}
 	int getclassid() {
 		return classid;
 	}

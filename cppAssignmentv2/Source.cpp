@@ -13,7 +13,7 @@ using namespace std;
 
 
 void studentMenu() { //vector<Student> Stud
-	studcla* Stud;
+	vector<studcla> Stud;
 	int studentno;
 	string fullname;
 	char gender;
@@ -40,12 +40,13 @@ void studentMenu() { //vector<Student> Stud
 					cin >> gender;
 				} while (gender != 'm' && gender != 'f' && gender != 'M' && gender != 'F'); //This condition may need refinement..
 
-				
+				//Trying to figure out how to get the damned thing to work...
 				//Stud.push_back(student(studentno, fullname, gender)); 
 				//Stud.stu.push_back(student(studentno, fullname, gender)); // this doesnt work either
+				//Stud.push_back(new Student(studentno, fullname, gender));
 
 				//Student Stud1 = Stud.addStudent(studentno, fullname, gender);
-				Stud->addStudent(studentno, fullname, gender);
+				Stud.addStudent(studentno, fullname, gender);
 				cout << endl;
 				
 				cout << "\nWould you like to enter more[n/N to abort]? ";

@@ -16,13 +16,14 @@ using namespace std;
 
 
 class studcla { // this is a transaction class.
-	vector<Student> stu;
+	vector<Student*> stu;
 	//vector<Class> cla;
 	//vector<Subject> subby;// migrate to subject transaction table perhaps
 	//vector<SubjectScore> subsco;// migrate to subject transaction table perhaps
 
 public:
 	studcla() {}
+	
 
 	void addStudent(int stu_no, string full_name, char gend);
 	void removeStudent();

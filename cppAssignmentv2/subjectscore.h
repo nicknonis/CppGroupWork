@@ -9,6 +9,10 @@ using namespace std;
 class SubjectScore {
 	double score;
 public:
+	SubjectScore(){}
+	SubjectScore(double sco) {
+		score = sco;
+	}
 	void setscore(double scr);
 	double getscore() {
 		return score;

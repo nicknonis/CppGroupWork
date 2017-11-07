@@ -67,7 +67,7 @@ void studcla::addStudent(int stu_no, std::string full_name, char gend) { //add f
 	ofstream outfile("student.txt", ios_base::app);
 	outfile << stu_no << "," << full_name << "," << gend << "\n";
 	outfile.close();
-	stu.push_back(Student(stu_no,full_name,gend));
+	stu.push_back(new Student(stu_no,full_name,gend));
 }
 
 

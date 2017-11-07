@@ -10,9 +10,15 @@ using namespace std;
 class Subject {
 	int id;
 	string name;
-	char type;
+	char type; // c or s
 
 public:
+	Subject(){}
+	Subject(int ide, string namee, char typee) {
+		id = ide;
+		name = namee;
+		type = typee;
+	}
 	int getid() {
 		return id;
 	}
