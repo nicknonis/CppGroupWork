@@ -50,3 +50,9 @@ void Subject::displaySubject() {
 	}
 
 }
+
+//void Subject::displaySubject() { 
+//	cout << getsubjectid() << " ";
+//	cout << getsubjectname() << " ";
+//	cout << getsubjecttype() << endl;
+//}

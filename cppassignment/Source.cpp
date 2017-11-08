@@ -41,7 +41,9 @@ int main() {
 			addSubject(sub);
 			break;
 		case'2':
-			sub.displaySubject();
+			//for (vector<Subject*>::iterator it = sub.begin(); it != sub.end(); it++)//this doesnt work either...
+			//	(*it)->displaySubject();
+			//(*sub)->displaySubject();
 			break;
 		case '3':
 			break;
