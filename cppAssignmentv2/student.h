@@ -12,15 +12,10 @@ class Student {
 	int studentno;
 	string fullname;
 	char gender;
-	//vector<SubjectScore> subscore;
 
 public:
 	Student() {}
-	Student(int stu_no, string f_name, char gen) {
-		studentno = stu_no;
-		fullname = f_name;
-		gender = gen;
-	}	
+	Student(int stu_no, string f_name, char gen);
 	~Student(); //student deconstructor	
 	int getStudentNo();
 	string getFullName();

@@ -4,7 +4,6 @@
 #include <iomanip>
 #include <fstream>
 #include <string>
-#include <stdlib.h>
 #include <sstream>
 #include <vector> // to use vectors 
 
@@ -46,7 +45,6 @@ void studentMenu() { //vector<Student> Stud
 		case '1':
 			do {
 				
-				system("CLS");
 				cout << "Enter Student No: ";
 				cin >> studentno;
 				cout << "Enter Full Name: ";
@@ -105,7 +103,6 @@ int main() {
 
 	//navigation
 	do {
-		system("CLS");
 		cout << "Choose an operation: \n1.Subject\n2.Class\n3.Student\n4.Exit\nChoice: ";
 		cin >> choice;
 		switch (choice)
@@ -117,13 +114,11 @@ int main() {
 			break;
 		case '3':
 			//call student menu
-			system("CLS");
 			//studentMenu(Stud);
 			studentMenu();
 			
 			break;
 		case '4':
-			system("CLS");
 			cout << "Terminating..." << endl;
 			break;
 		default:

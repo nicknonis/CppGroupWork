@@ -17,10 +17,7 @@
 using namespace std;
 
 
-bool file_exist(const char *fileName) {
-	ifstream infile("student.txt");
-	return infile.good();
-}
+
 
 /*studcla::studcla() { //this stuff is broken... regex maybe?
 
