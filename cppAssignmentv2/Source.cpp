@@ -1,4 +1,7 @@
-#include "stu_cla.h"
+#include "student.h"
+#include "subject.h"
+#include "subjectscore.h"
+#include "klass.h"
 
 #include <iostream>
 #include <iomanip>
@@ -10,26 +13,10 @@
 
 using namespace std;
 //Subject Function to be removed?
-void addSubject(vector<Subject*> sub) {
-	int s_id;
-	string s_name;
-	char s_type;
-
-	cout << "Enter Subject ID: ";
-	cin >> s_id;
-	cout << "\nEnter Subject Name: ";
-	cin.ignore();
-	getline(cin, s_name);
-	cout << "\nEnter Subject Type [Core = c/ Elective = e]: ";
-	cin >> s_type;
-	cout << endl;
-
-	sub.push_back(new Subject(s_id, s_name, s_type));
-}
 
 
-void studentMenu() { //vector<Student> Stud
-	vector<studcla> Stud;
+void studentMenu(vector<Student*> Stud) { //vector<Student> Stud
+	Student* stu_cur = new Student;
 	int studentno;
 	string fullname;
 	char gender;
@@ -97,6 +84,7 @@ void studentMenu() { //vector<Student> Stud
 
 
 int main() {
+	vector<Student*> Stud;
 	char choice;
 	//vector<Student> Stud;
 	
@@ -114,8 +102,7 @@ int main() {
 			break;
 		case '3':
 			//call student menu
-			//studentMenu(Stud);
-			studentMenu();
+			studentMenu(Stud);
 			
 			break;
 		case '4':

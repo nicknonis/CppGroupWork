@@ -33,5 +33,5 @@ public:
 		type = s_type;
 	}
 
-
+	void addSubject(vector<Subject*> sub);
 };

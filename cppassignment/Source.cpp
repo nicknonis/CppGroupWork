@@ -9,51 +9,48 @@
 
 
 
-void addSubject(vector<Subject*> sub) {
-	int s_id;
-	string s_name;
-	char s_type;
-
-	cout << "Enter Subject ID: ";
-	cin >> s_id;
-	cout << "\nEnter Subject Name: ";
-	cin.ignore();
-	getline(cin, s_name);
-	cout << "\nEnter Subject Type [Core = c/ Elective = e]: ";
-	cin >> s_type;
-	cout << endl;
-
-	sub.push_back(new Subject(s_id, s_name,s_type));
-}
-
-
-
-int main() {
+int subjectmenu(vector<Subject*> sub) {
 	char choice;
-	vector<Subject*> sub;
-	
+	Subject* cur_sub = new Subject();
 	do {
-		cout << "Choose an operation. \n1. Add Subject\n2. View Subjects\n3. Modify Subject\n4. Exit\n?";
+		cout << "Choose an operation. \n1. Add Subject\n2. View Subjects\n3. Modify Subject\n4. Remove\n5. Return\n?";
 		cin >> choice;
 
 		switch (choice) {
 		case '1':
-			addSubject(sub);
+			cur_sub->addSubject(sub);
+			
 			break;
 		case'2':
-			//for (vector<Subject*>::iterator it = sub.begin(); it != sub.end(); it++)//this doesnt work either...
+			cur_sub->displaySubject();
+			//for (vector<Subject*>::iterator it = sub.begin(); it != sub.end(); it++)//alternatives for display.
 			//	(*it)->displaySubject();
 			//(*sub)->displaySubject();
 			break;
 		case '3':
+			cur_sub->modifySubject(sub);
 			break;
 		case '4':
+			cur_sub->removeSubject();
+			break;
+		case '5':
 			cout << "Terminating..." << endl;
 			break;
 		default:
 			cout << "\nInvalid option selected! Please select a proper option.\n" << endl;
 		}
-	} while (choice != '4');
+	} while (choice != '5');
+
+	//clean up
+	delete cur_sub;
+	cur_sub = NULL;
+	return 0;
+}
+
+
+int main() {
+	vector<Subject*> sub;
+	subjectmenu(sub);
 	
 	return 0;
 }

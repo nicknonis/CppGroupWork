@@ -3,6 +3,7 @@
 #ifndef subject
 #define subject
 #include <string>
+#include <vector>
 using namespace std;
 #endif
 
@@ -10,10 +11,12 @@ class Subject {
 	int id;
 	string name;
 	char type;
+	vector<Subject*> sub;
 public:
-	Subject() {}
+	Subject();
 	Subject(int s_id, string s_name, char s_type);
 	~Subject() {}
+
 	void displaySubject();
 
 	int getsubjectid() {
@@ -35,5 +38,8 @@ public:
 		type = s_type;
 	}
 
-	
+	void addSubject(vector<Subject*> sub);
+	void removeSubject();
+	void modifySubject(vector<Subject*> sub);
+
 };
