@@ -64,7 +64,7 @@ void Subject::displaySubject() {
 
 	if (file_exist(fileName)) {
 		ifstream infile(fileName);
-		cout << setw(30) << left << "Subject ID" << setw(50) << left << "Subject Name" << setw(12) << left << "Type" << endl;
+		cout << "\n" << setw(30) << left << "Subject ID" << setw(50) << left << "Subject Name" << setw(12) << left << "Type" << endl;
 		while (getline(infile, line)) {
 			stringstream stu(line);
 			while (getline(stu, s_id, ',')) {
@@ -81,7 +81,7 @@ void Subject::displaySubject() {
 		}
 		infile.close();
 	}
-
+	cout << endl;
 }
 
 void Subject::addSubject(vector<Subject*> sub) {
@@ -89,7 +89,7 @@ void Subject::addSubject(vector<Subject*> sub) {
 	string s_name;
 	char s_type;
 
-	cout << "Enter Subject ID: ";
+	cout << "\nEnter Subject ID: ";
 	cin >> s_id;
 	cout << "\nEnter Subject Name: ";
 	cin.ignore();
@@ -139,33 +139,71 @@ void Subject::removeSubject() { // This needs refinement. It works but will cinc
 
 
 void Subject::modifySubject(vector<Subject*> sub) { // need to add vector modifer too...
+	string modLine, line;
+	ifstream infile;
+	infile.open("subject.txt");
+	ofstream temp;
+	temp.open("temp.txt");
+	cout << "\nEnter the Exact Subject ID or Subject Name to modify[-1 to cancel]: ";
+	cin >> modLine;
+	if (modLine == "-1")
+		return;
 
-	ostringstream text;
-	ifstream infile("subject.txt");
+	while (getline(infile, line)) {
+		if (strstr(line.c_str(), modLine.c_str()) == nullptr) {
+			temp << line << endl;
+		}
+	}
 
-	text << infile.rdbuf();
-	string str = text.str();
-	int new_id,search_id;
+	temp.close();
+	infile.close();
+	remove("subject.txt");
+	rename("temp.txt", "subject.txt");
+
+	int s_id;
 	string s_name;
 	char s_type;
 
-	cout << "Enter a Subject ID to modify: ";
-	cin >> search_id;
-
-	cout << "\nEnter a new Subject ID: ";
-	cin >> new_id;
-	cout << "\nEnter a new Subject Name: ";
+	cout << "Enter new Subject ID: ";
+	cin >> s_id;
+	cout << "\nEnter new Subject Name: ";
 	cin.ignore();
 	getline(cin, s_name);
-	cout << "\nEnter a new Subject Type[Core = c/ Elective = e]: ";
+	cout << "\nEnter new Subject Type [Core = c/ Elective = e]: ";
 	cin >> s_type;
-	
-	string str_found = to_string(search_id);
-	string str_replace = to_string(new_id);
-	size_t pos = str.find(str_found);
-	str.replace(pos, string(str_found).length(), str_replace);//replace subject id
-	infile.close();
+	cout << endl;
 
-	ofstream outfile("subject.txt");
-	outfile << str;
+	ofstream outfile("subject.txt", ios_base::app);
+	outfile << s_id << "," << s_name << "," << s_type << "\n";
+	outfile.close();
+
+	//-- better method but it only modifies part of the target...
+	//ostringstream text;
+	//ifstream infile("subject.txt");
+
+	//text << infile.rdbuf();
+	//string str = text.str();
+	//int new_id,search_id;
+	//string s_name;
+	//char s_type;
+
+	//cout << "Enter a Subject ID to modify: ";
+	//cin >> search_id;
+
+	//cout << "\nEnter a new Subject ID: ";
+	//cin >> new_id;
+	//cout << "\nEnter a new Subject Name: ";
+	//cin.ignore();
+	//getline(cin, s_name);
+	//cout << "\nEnter a new Subject Type[Core = c/ Elective = e]: ";
+	//cin >> s_type;
+	//
+	//string str_found = to_string(search_id);
+	//string str_replace = to_string(new_id);
+	//size_t pos = str.find(str_found);
+	//str.replace(pos, string(str_found).length(), str_replace);//replace subject id
+	//infile.close();
+
+	//ofstream outfile("subject.txt");
+	//outfile << str;
 }
