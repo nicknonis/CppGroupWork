@@ -8,7 +8,7 @@
 #include <sstream>
 //#include <iterator>//used for proper vector solution
 
-bool file_exist(const char *fileName) {
+bool Subject::file_exist(const char *fileName) {
 	ifstream infile("subject.txt");
 	return infile.good();
 }
@@ -55,6 +55,17 @@ Subject::Subject(int s_id, string s_name, char s_type){
 	outfile << id << "," << name << "," << type << "\n";
 	outfile.close();
 	}
+//proper vector method but too lazy to get this to work properly...
+//meant to be used together with file manipulator to assign values if not present.
+//void Subject::displaySubject(vector<Subject*> sub) {
+//	if (sub.empty())
+//		return;
+//	else {
+//		for (size_t n = 0; n < sub.size(); n++)
+//			cout << sub[n] << " ";
+//		cout << endl;
+//	}
+//}
 
 void Subject::displaySubject() {
 	string line;
@@ -100,18 +111,6 @@ void Subject::addSubject(vector<Subject*> sub) {
 
 	sub.push_back(new Subject(s_id, s_name, s_type));
 }
-
-//proper vector method but too lazy to get this to work properly...
-//meant to be used together with file manipulator to assign values if not present.
-//void Subject::displaySubject(vector<Subject*> sub) {
-//	if (sub.empty())
-//		return;
-//	else {
-//		for (size_t n = 0; n < sub.size(); n++)
-//			cout << sub[n] << " ";
-//		cout << endl;
-//	}
-//}
 
 void Subject::removeSubject() { // This needs refinement. It works but will cincai delete based on other criteria...
 	string delLine, line;

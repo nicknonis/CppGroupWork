@@ -1,7 +1,7 @@
 
 
-#ifndef subject
-#define subject
+#ifndef subject_h
+#define subject_h
 #include <string>
 #include <vector>
 using namespace std;
@@ -41,5 +41,5 @@ public:
 	void addSubject(vector<Subject*> sub);
 	void removeSubject();
 	void modifySubject(vector<Subject*> sub);
-
+	bool file_exist(const char *fileName);
 };

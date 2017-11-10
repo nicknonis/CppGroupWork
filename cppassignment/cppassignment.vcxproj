@@ -20,9 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="student.cpp" />
     <ClCompile Include="subject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="student.h" />
     <ClInclude Include="subject.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
