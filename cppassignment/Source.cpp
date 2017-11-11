@@ -2,13 +2,14 @@
 //exception handling in student.cpp - (addstudent and viewallstudent)
 //virtual functions in student.h
 //function overloading all over the place.
-//operator overloading in subjectscore - TODO
+//operator overloading in student - allows duplication of data through overloaded operator.
 //inheritance in student (student has 2 children art and science)
 // -- Nicholas
 
 #include "subject.h"
 #include "klass.h"
 #include "student.h"
+#include "subjectscore.h"
 
 #include <iostream>
 #include <string>
@@ -117,7 +118,7 @@ void studentMenu(vector<Student*> Stud) { //vector<Student> Stud
 			cur_stud->removeStudent(); //deletes student record from file. 
 			break;
 		case '5':
-			cur_stud->searchStudent(); //search for particular student
+			cur_stud->searchStudent(cur_stud); //search for particular student
 			break;
 		case '6':
 			cout << "Returning..." << endl;
@@ -134,13 +135,51 @@ void studentMenu(vector<Student*> Stud) { //vector<Student> Stud
 	return;
 }
 
+void scoreMenu(vector<subjectScore*> sco) { //vector<Student> Stud
+	subjectScore* cur_sco = new subjectScore();
+	char choice;
+
+	do {
+		cout << "\nChoose an operation: \n1.Add Score\n2.View Score\n3.Modify Score\n4.Delete Score\n5.Return\nChoice: ";
+		cin >> choice;
+		switch (choice)
+		{
+		case '1':
+			cur_sco->addScore(sco);
+			break;
+		case '2':
+			cur_sco->viewScore(); // displays all student
+			break;
+		case '3':
+			cur_sco->modifyScore();
+
+			break;
+		case '4':
+			cur_sco->removeScore(); //deletes student record from file. 
+			break;
+		case '5':
+			cout << "Returning..." << endl;
+			break;
+		default:
+			cout << "\nInvalid option selected! Please select a proper option.\n" << endl;
+		}
+	} while (choice != '5');
+
+	//clean up
+	delete cur_sco;
+	cur_sco = NULL;
+	cout << endl;
+	return;
+}
+
 int main() {
 	char choice;
 	vector<Subject*> sub;
 	vector<Student*> Stud;
 	vector<Class*> cla;
+	vector<subjectScore*> sco;
 	do {
-		cout << "Choose an operation: \n1.Subject\n2.Class\n3.Student\n4.Exit\nChoice: ";
+		cout << "Choose an operation: \n1.Subject\n2.Class\n3.Student\n4.Score\n5.Exit\nChoice: ";
 		cin >> choice;
 		switch (choice)
 		{
@@ -154,11 +193,13 @@ int main() {
 			studentMenu(Stud);
 			break;
 		case '4':
+			scoreMenu(sco);
+		case '5':
 			cout << "Terminating..." << endl;
 			break;
 		default:
 			cout << "\nInvalid option selected! Please select a proper option.\n" << endl;
 		}
-	} while (choice != '4');	
+	} while (choice != '5');	
 	return 0;
 }

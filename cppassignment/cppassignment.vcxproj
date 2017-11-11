@@ -23,11 +23,13 @@
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="student.cpp" />
     <ClCompile Include="subject.cpp" />
+    <ClCompile Include="subjectscore.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="klass.h" />
     <ClInclude Include="student.h" />
     <ClInclude Include="subject.h" />
+    <ClInclude Include="subjectscore.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5EE66725-B956-45DF-B547-4D9C216545A6}</ProjectGuid>

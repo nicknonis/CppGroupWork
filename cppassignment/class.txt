@@ -1,7 +1,7 @@
-1001,Ixora,1,L
-1002,Meranti,2,L
-1003,Roti Canai,3,L
-1004,Mawar,4,A
-1000,Mawar,5,S
-1005,Kenanga,4,A
-1006,Cenggal,1,L
+1100,Mawar,1,L
+1200,Ixora,2,L
+1300,Meranti,3,L
+1400,Cenggal,4,S
+1401,Kenanga,4,A
+1500,Cempaka,5,S
+1501,Serigala,5,A

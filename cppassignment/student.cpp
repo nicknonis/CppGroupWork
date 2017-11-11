@@ -172,49 +172,6 @@ void Student::modifyStudent() {
 	outfile.close();
 }
 
-
-void Student::searchStudent() { //Working! use student ID and it returns the value
-	string search, line;
-	string s_stu_no, s_class_id;
-	int stu_no, class_id;
-	string f_name, gen_s;
-	char gen;
-	char fileName[] = "student.txt";
-
-	ifstream infile(fileName);
-
-	cin.ignore();
-	cout << "Enter a Student Number to search: ";
-	getline(cin, search);
-	if (file_exist(fileName)) {
-		ifstream infile(fileName);
-		cout << setw(30) << left << "Student Number" << setw(40) << left << "Student Name" << setw(12) << left << "Class ID" << setw(12) << left << "Gender" << endl;
-		string candidate;
-
-		while (getline(infile, line)) {
-			stringstream stu(line);
-			while (getline(stu, s_stu_no, ',')) {
-
-				getline(stu, f_name, ',');
-				getline(stu, s_class_id, ',');
-				stu >> gen;
-				stu_no = stoi(s_stu_no);
-				class_id = stoi(s_class_id);
-				if (search == s_stu_no) {
-					cout << setw(30) << left << stu_no;
-					cout << setw(40) << left << f_name;
-					cout << setw(12) << left << class_id;
-					cout << setw(12) << left << gen << endl;
-
-				}
-			}
-		}
-		infile.close();
-	}
-}
-
-
-
 void Student::viewAllStudent() {
 	string line;
 	string s_stu_no;
@@ -253,17 +210,310 @@ void Student::viewAllStudent() {
 
 }
 
-string Student::getTotalScore() {
-	return 0;
+void Student::searchStudent(Student* cur_new) { //Working! use student ID and it returns the value
+	string search, line;
+	string s_stu_no, s_class_id;
+	int stu_no, class_id;
+	string f_name, gen_s;
+	char gen; 
+	char strea;
+	char fileName[] = "student.txt";
+
+	ifstream infile(fileName);
+
+	cin.ignore();
+	cout << "Enter a Student Number to search: ";
+	getline(cin, search);
+	if (file_exist(fileName)) {
+		ifstream infile_student(fileName);
+		string candidate;
+
+		while (getline(infile_student, line)) {
+			stringstream stu(line);
+			while (getline(stu, s_stu_no, ',')) {
+
+				getline(stu, f_name, ',');
+				getline(stu, s_class_id, ',');
+				stu >> gen;
+				stu_no = stoi(s_stu_no);
+				class_id = stoi(s_class_id);
+				if (search == s_stu_no) {
+					cout << "\nStudent Number: " << stu_no << endl;
+					cout << "Student Name: " << f_name << endl;
+					cout << "Gender: " << gen << endl;
+					cout << "Class ID: " << class_id << endl;
+				}
+			}
+		}
+		infile_student.close();
+	}
+	if (file_exist("class.txt")) {
+		
+		string class_name, year_form;
+		ifstream infile_class("class.txt");
+		string candidate;
+
+		while (getline(infile_class, line)) {
+			stringstream stu(line);
+			while (getline(stu, s_class_id, ',')) {
+
+				getline(stu, class_name, ',');
+				getline(stu, year_form, ',');
+				stu >> strea;
+
+				if (class_id == stoi(s_class_id)) {
+					cout << "Class Name: " << class_name << endl;
+					cout << "Year Form: " << year_form << endl;
+					cout << "Stream: " << strea << endl;
+				}
+			}
+		}
+		infile_class.close();
+	}
+	if (file_exist("subjectScore.txt")) {
+		ifstream infile_subjectScore("subjectScore.txt");
+		string candidate;
+		string sub_sco_stud_no, sub_sco_subid, sub_sco_score, sub_sco_scoreid;
+		char sub_sco_type;
+		cout << setw(15) << left << "Subject ID" << setw(15) << left << "Score" << endl;
+		while (getline(infile_subjectScore, line)) {
+			stringstream stu(line);
+			while (getline(stu, sub_sco_stud_no, ',')) {
+				getline(stu, sub_sco_subid, ',');
+				getline(stu, sub_sco_score, ',');
+				getline(stu, sub_sco_scoreid, ',');
+				stu >> sub_sco_type;
+
+				if (search == sub_sco_stud_no) {
+					cout << setw(15) << left << sub_sco_subid ;
+					cout << setw(15) << left << sub_sco_score << endl;
+				}
+			}
+		}
+		infile_subjectScore.close();
+		
+		cout << "\nTotal Score: " << getTotalScore(search) <<endl;
+
+
+
+		if (strea == 'S') {
+			Student* cur_new = &ScienceStudent();
+		}
+		else if (strea == 'A') {
+			Student* cur_new = &ArtStudent();
+		}
+
+		cout << "Final Grade: " << cur_new->getFinalGrade(search) << endl;
+		cout << "If Final Grade is 'N' the student could be missing a classes,subjects or scores " <<  endl;
+	}
+	
 }
 
-char Student::getFinalGrade() {// any core subject <60
-	return 0;
+
+string Student::getTotalScore(string search) {
+	double totscore=0;
+	string line;
+	if (file_exist("subjectScore.txt")) {
+		ifstream infile_subjectScore("subjectScore.txt");
+		string candidate;
+		string sub_sco_stud_no, sub_sco_subid, sub_sco_score, sub_sco_scoreid;
+		char sub_sco_type;
+		while (getline(infile_subjectScore, line)) {
+			stringstream stu(line);
+			while (getline(stu, sub_sco_stud_no, ',')) {
+				getline(stu, sub_sco_subid, ',');
+				getline(stu, sub_sco_score, ',');
+				getline(stu, sub_sco_scoreid, ',');
+				stu >> sub_sco_type;
+
+				if (search == sub_sco_stud_no) {
+					totscore += stod(sub_sco_score);
+				}
+			}
+		}
+		infile_subjectScore.close();
+	}
+
+
+
+	ostringstream totsco;
+	totsco << totscore;
+	string totsco_send = totsco.str();
+		return totsco_send;
 }
 
-char ScienceStudent::getFinalGrade() {// any core subject <60 && 2 selective <60
-	return 0;
+
+char Student::getFinalGrade(string search) {// any core subject <60
+	char grade = 'N';
+	double totscore = 0;
+	string line;
+	int ctr = 0;
+	if (file_exist("subjectScore.txt")) {
+		ifstream infile_subjectScore("subjectScore.txt");
+		string candidate;
+		string sub_sco_stud_no, sub_sco_subid, sub_sco_score, sub_sco_scoreid;
+		char sub_sco_type;
+		while (getline(infile_subjectScore, line)) {
+			stringstream stu(line);
+			while (getline(stu, sub_sco_stud_no, ',')) {
+				getline(stu, sub_sco_subid, ',');
+				getline(stu, sub_sco_score, ',');
+				getline(stu, sub_sco_scoreid, ',');
+				stu >> sub_sco_type;
+
+				if (search == sub_sco_stud_no) {
+					totscore += stod(sub_sco_score);
+					ctr++;
+				}
+			}
+		}
+		infile_subjectScore.close();
+	}
+
+	double finsco = totscore / ctr;
+	if (finsco >= 90 && finsco <= 100)
+		grade = 'A';
+	else if (finsco >= 80 && finsco <= 89)
+		grade = 'B';
+	else if (finsco >= 70 && finsco <= 79)
+		grade = 'C';
+	else if (finsco >= 60 && finsco <= 69)
+		grade = 'D';
+	else if (finsco < 60 && finsco >= 0)
+		grade = 'F';
+
+	return grade;
 }
-char ArtStudent::getFinalGrade() { // any core subject <60 && 3 selective <60
-	return 0;
+char Student::subjectfinder(string sub_sco_subid) {
+	string search, line,sub_id,sub_name;
+	char type;
+	
+	char fileName[] = "subject.txt";
+
+	ifstream infile(fileName);
+	if (file_exist(fileName)) {
+		ifstream infile_student(fileName);
+		string candidate;
+
+		while (getline(infile_student, line)) {
+			stringstream stu(line);
+			while (getline(stu, sub_id, ',')) {
+				getline(stu, sub_name, ',');
+				stu >> type;
+				
+				if (sub_sco_subid == sub_id)
+					break;
+				
+			}
+		}
+		infile_student.close();
+	}
+	return type;
+}
+
+char ScienceStudent::getFinalGrade(string search) {// any core subject <60 && 2 selective <60
+	char grade = 'N';
+	double totscore = 0;
+	string line;
+	int ctr = 0;
+	int fails = 0;
+	if (file_exist("subjectScore.txt")) {
+		ifstream infile_subjectScore("subjectScore.txt");
+		string candidate;
+		string sub_sco_stud_no, sub_sco_subid, sub_sco_score, sub_sco_scoreid;
+		char sub_sco_type;
+		while (getline(infile_subjectScore, line)) {
+			stringstream stu(line);
+			while (getline(stu, sub_sco_stud_no, ',')) {
+				getline(stu, sub_sco_subid, ',');
+				getline(stu, sub_sco_score, ',');
+				getline(stu, sub_sco_scoreid, ',');
+				stu >> sub_sco_type;
+
+				if (search == sub_sco_stud_no) {
+
+					if (subjectfinder(sub_sco_subid) == 'c' && stod(sub_sco_score) < 60) {
+						infile_subjectScore.close();
+						grade = 'F';
+						return grade;
+					}
+					else if (subjectfinder(sub_sco_subid) == 'e' && stod(sub_sco_score) < 60) {
+						fails++;
+					}
+					totscore += stod(sub_sco_score);
+					ctr++;
+				}
+			}
+		}
+		infile_subjectScore.close();
+	}
+
+	double finsco = totscore / ctr;
+	if (fails >= 2)
+		grade = 'F';
+	else if (finsco >= 90 && finsco <= 100)
+		grade = 'A';
+	else if (finsco >= 80 && finsco <= 89)
+		grade = 'B';
+	else if (finsco >= 70 && finsco <= 79)
+		grade = 'C';
+	else if (finsco >= 60 && finsco <= 69)
+		grade = 'D';
+	else if (finsco < 60 && finsco >= 0)
+		grade = 'F';
+
+	return grade;
+}
+char ArtStudent::getFinalGrade(string search) { // any core subject <60 && 3 selective <60
+	char grade = 'N';
+	double totscore = 0;
+	string line;
+	int ctr = 0;
+	int fails = 0;
+	if (file_exist("subjectScore.txt")) {
+		ifstream infile_subjectScore("subjectScore.txt");
+		string candidate;
+		string sub_sco_stud_no, sub_sco_subid, sub_sco_score, sub_sco_scoreid;
+		char sub_sco_type;
+		while (getline(infile_subjectScore, line)) {
+			stringstream stu(line);
+			while (getline(stu, sub_sco_stud_no, ',')) {
+				getline(stu, sub_sco_subid, ',');
+				getline(stu, sub_sco_score, ',');
+				getline(stu, sub_sco_scoreid, ',');
+				stu >> sub_sco_type;
+
+				if (search == sub_sco_stud_no) {
+
+					if (subjectfinder(sub_sco_subid) == 'c' && stod(sub_sco_score) < 60) {
+						infile_subjectScore.close();
+						grade = 'F';
+						return grade;
+					}
+					else if (subjectfinder(sub_sco_subid) == 'e' && stod(sub_sco_score) < 60) {
+						fails++;
+					}
+					totscore += stod(sub_sco_score);
+					ctr++;
+				}
+			}
+		}
+		infile_subjectScore.close();
+	}
+
+	double finsco = totscore / ctr;
+	if (fails >= 3)
+		grade = 'F';
+	else if (finsco >= 90 && finsco <= 100)
+		grade = 'A';
+	else if (finsco >= 80 && finsco <= 89)
+		grade = 'B';
+	else if (finsco >= 70 && finsco <= 79)
+		grade = 'C';
+	else if (finsco >= 60 && finsco <= 69)
+		grade = 'D';
+	else if (finsco < 60 && finsco >= 0)
+		grade = 'F';
+
+	return grade;
 }

@@ -1,4 +1,9 @@
-1,Yoshi Mitsu,1000,M
-2,Ali Baba,1002,M
-3,Just A Generic Girl,1004,F
-200,Just another Nobody,1002,M
+6000,Mike Shinoda,1100,M
+6001,Fatima Binti Brohiz,1200,F
+6003,John Doe,1300,M
+6004,Ali Baba,1400,M
+6005,Baha Man,1401,M
+6006,Halim bin Bro,1500,M
+6007,Chi Cheong Fun,1501,F
+6008,Pls no More Bro,1100,M
+6009,Fatin bin Taktau,1100,F

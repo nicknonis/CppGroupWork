@@ -1,4 +1,11 @@
-1111,English,c
-2222,Bahasa Malaysia,c
-3333,Mathematics,c
-4444,Art,e
+1000,Bahasa Malaysia,c
+1001,English,c
+1002,Mathematics,c
+1003,History,c
+1004,Moral,c
+2000,Biology,e
+2001,Chemistry,e
+2002,Physics,e
+3000,Economics,e
+3001,Commerce,e
+3002,Art,e

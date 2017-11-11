@@ -17,6 +17,13 @@ public:
 	Student();
 	Student(int stu_no, string f_name, int class_id, char gen);
 	~Student();
+	void operator =(const Student& copy) { //operator overload in case we need to dup.
+		int studentno= copy.studentno;
+		string fullname = copy.fullname;
+		char gender = copy.gender;
+		int classid = copy.classid;
+
+	}
 	int getstudentno() {
 		return studentno;
 	}
@@ -42,35 +49,38 @@ public:
 		classid = c_id;
 	}
 
-	virtual string getTotalScore();
-	virtual char getFinalGrade();
+	virtual string getTotalScore(string search);
+	virtual char getFinalGrade(string search);
 
 	void addStudent(vector<Student*> stud);
 	void removeStudent();
 	void modifyStudent();
 	void viewAllStudent();
-	void searchStudent();
+	void searchStudent(Student* cur_stud);
 	bool file_exist(const char *fileName);
+	char subjectfinder(string sub_sco_subid);
 };
 
 class ScienceStudent : public Student {
 public:
+	ScienceStudent(){}
 	ScienceStudent(int stu_no, string full_name, int class_id, char gend) {
 		setstudentno(stu_no);
 		setfullname(full_name);
 		setgender(gend);
 		setclassid(class_id);
 	};
-	char getFinalGrade();
+	char getFinalGrade(string search);
 };
 
 class ArtStudent : public Student {
 public:
+	ArtStudent(){}
 	ArtStudent(int stu_no, string full_name, int class_id, char gend) {
 		setstudentno(stu_no);
 		setfullname(full_name);
 		setgender(gend);
 		setclassid(class_id);
 	}
-	char getFinalGrade();
+	char getFinalGrade(string search);
 };
