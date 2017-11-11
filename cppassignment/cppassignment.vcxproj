@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="klass.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="student.cpp" />
     <ClCompile Include="subject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="klass.h" />
     <ClInclude Include="student.h" />
     <ClInclude Include="subject.h" />
   </ItemGroup>

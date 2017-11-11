@@ -1,4 +1,5 @@
 #include "subject.h"
+#include "klass.h"
 #include "student.h"
 
 #include <iostream>
@@ -12,7 +13,7 @@ int subjectMenu(vector<Subject*> sub) {
 	char choice;
 	Subject* cur_sub = new Subject();
 	do {
-		cout << "Choose an operation. \n1. Add Subject\n2. View Subjects\n3. Modify Subject\n4. Remove\n5. Return\nChoice: ";
+		cout << "\nChoose an operation. \n1. Add Subject\n2. View Subjects\n3. Modify Subject\n4. Remove\n5. Return\nChoice: ";
 		cin >> choice;
 
 		switch (choice) {
@@ -43,15 +44,54 @@ int subjectMenu(vector<Subject*> sub) {
 	//clean up
 	delete cur_sub;
 	cur_sub = NULL;
+	cout << endl;
 	return 0;
 }
+
+int classMenu(vector<Class*> cla) {
+
+	char choice;
+	Class* cur_cla = new Class();
+	do {
+		cout << "\nChoose an operation. \n1. Add Class\n2. View Classes\n3. Modify Class\n4. Remove Class\n5. Return\nChoice: ";
+		cin >> choice;
+
+		switch (choice) {
+		case '1':
+			cur_cla->addClass(cla);
+
+			break;
+		case'2':
+			cur_cla->displayClass();
+			break;
+		case '3':
+			cur_cla->modifyClass(cla);
+			break;
+		case '4':
+			cur_cla->removeClass();
+			break;
+		case '5':
+			cout << "Terminating..." << endl;
+			break;
+		default:
+			cout << "\nInvalid option selected! Please select a proper option.\n" << endl;
+		}
+	} while (choice != '5');
+
+	//clean up
+	delete cur_cla;
+	cur_cla = NULL;
+	cout << endl;
+	return 0;
+}
+
 
 void studentMenu(vector<Student*> Stud) { //vector<Student> Stud
 	Student* cur_stud = new Student();
 	char choice;
 
 	do {
-		cout << "Choose an operation: \n1.Add Student\n2.View Student\n3.Modify Student\n4.Delete Student\n5.Search Student Record\n6.Return\nChoice: ";
+		cout << "\nChoose an operation: \n1.Add Student\n2.View Student\n3.Modify Student\n4.Delete Student\n5.Search Student Record\n6.Return\nChoice: ";
 		cin >> choice;
 		switch (choice)
 		{
@@ -82,6 +122,7 @@ void studentMenu(vector<Student*> Stud) { //vector<Student> Stud
 	//clean up
 	delete cur_stud;
 	cur_stud = NULL;
+	cout << endl;
 	return;
 }
 
@@ -89,6 +130,7 @@ int main() {
 	char choice;
 	vector<Subject*> sub;
 	vector<Student*> Stud;
+	vector<Class*> cla;
 	do {
 		cout << "Choose an operation: \n1.Subject\n2.Class\n3.Student\n4.Exit\nChoice: ";
 		cin >> choice;
@@ -98,6 +140,7 @@ int main() {
 			subjectMenu(sub);
 			break;
 		case '2':
+			classMenu(cla);
 			break;
 		case '3':
 			studentMenu(Stud);
