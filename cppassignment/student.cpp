@@ -97,7 +97,12 @@ void Student::addStudent(vector<Student*> stud) { //add file manipulators here t
 
 
 	ofstream outfile("student.txt", ios_base::app);
-	outfile << studentno << "," << fullname << "," << classid << "," << gender << "\n";
+	try {
+		outfile << studentno << "," << fullname << "," << classid << "," << gender << "\n";
+	}	
+	catch (...) {
+		cout << "Unexpected error occured!\n";
+	}
 	outfile.close();
 	
 }
@@ -221,21 +226,28 @@ void Student::viewAllStudent() {
 	if (file_exist(fileName)) {
 		ifstream infile(fileName);
 		cout << setw(30) << left << "Student Number" << setw(40) << left << "Student Name" << setw(12) << left << "Class ID" << setw(12) << left << "Gender" << endl;
-		while (getline(infile, line)) {
-			stringstream stu(line);
-			while (getline(stu, s_stu_no, ',')) {
-				getline(stu, f_name, ',');
-				getline(stu, s_class_id, ',');
-				stu >> gen;
+		try {
+			while (getline(infile, line)) {
+				stringstream stu(line);
+				while (getline(stu, s_stu_no, ',')) {
+					getline(stu, f_name, ',');
+					getline(stu, s_class_id, ',');
+					stu >> gen;
 
-				stu_no = stoi(s_stu_no);
-				class_id = stoi(s_class_id);
-				cout << setw(30) << left << stu_no;
-				cout << setw(40) << left << f_name;
-				cout << setw(12) << left << class_id;
-				cout << setw(12) << left << gen << endl;
+					stu_no = stoi(s_stu_no);
+					class_id = stoi(s_class_id);
+					cout << setw(30) << left << stu_no;
+					cout << setw(40) << left << f_name;
+					cout << setw(12) << left << class_id;
+					cout << setw(12) << left << gen << endl;
+				}
 			}
 		}
+		catch (...) {
+			cout << "A problem occured while opening file.\n";
+		}
+		
+		
 		infile.close();
 	}
 

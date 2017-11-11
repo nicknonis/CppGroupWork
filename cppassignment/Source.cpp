@@ -1,3 +1,11 @@
+//vectors used all over
+//exception handling in student.cpp - (addstudent and viewallstudent)
+//virtual functions in student.h
+//function overloading all over the place.
+//operator overloading in subjectscore - TODO
+//inheritance in student (student has 2 children art and science)
+// -- Nicholas
+
 #include "subject.h"
 #include "klass.h"
 #include "student.h"
