@@ -47,4 +47,8 @@ public:
 	void modifyClass(vector<Class*> cla);
 	void displayClass();
 	bool file_exist(const char *fileName);
+
+	void searchClass(Class* classa);
+	void getStudents(string search);
+	void getScore(string search);
 };

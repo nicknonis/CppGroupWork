@@ -211,3 +211,97 @@ void Class::modifyClass(vector<Class*> cla) { // need to add vector modifer too.
 	outfile << c_id << "," << c_name << "," << y_year << "," << y_grade << "\n";
 	outfile.close();
 }
+
+void Class::searchClass(Class* cur_new) { 
+	string search, line;
+
+	string s_class_id, s_class_name, s_class_yearform;
+	char class_stream;
+	char fileName[] = "class.txt";
+
+	ifstream infile(fileName);
+
+	cin.ignore();
+	cout << "\nEnter a Class ID to search: ";
+	getline(cin, search);
+	if (file_exist(fileName)) {
+		ifstream infile_class(fileName);
+		string candidate;
+
+		while (getline(infile_class, line)) {
+			stringstream stu(line);
+			while (getline(stu, s_class_id, ',')) {
+
+				getline(stu, s_class_name, ',');
+				getline(stu, s_class_yearform, ',');
+				stu >> class_stream;
+
+				if (search == s_class_id) {
+					cout << "\nClass Name: " << s_class_name << endl;
+					cout << "Class Year Form: " << s_class_yearform << endl;
+					getStudents(s_class_id);
+
+				}
+			}
+		}
+		infile_class.close();
+	}
+}
+
+void Class::getStudents(string search) {
+//	cout << "\nSEARCHING STUDENTS\n" << endl;//debug purpose
+	string line;
+	string s_stu_no, s_class_id;
+	string f_name, gen_s;
+	char gen;
+	char fileName[] = "student.txt";
+
+	ifstream infile(fileName);
+
+	if (file_exist(fileName)) {
+		ifstream infile_student(fileName);
+		string candidate;
+
+		while (getline(infile_student, line)) {
+			stringstream stu(line);
+			while (getline(stu, s_stu_no, ',')) {
+
+				getline(stu, f_name, ',');
+				getline(stu, s_class_id, ',');
+				stu >> gen;
+				if (s_class_id == search) {
+					cout << "\nStudent Name: " << f_name << endl;
+					getScore(s_stu_no);
+				}
+			}
+		}
+		infile_student.close();
+	}
+}
+
+void Class::getScore(string search) {
+//	cout << "\nSEARCHING SCORE\n" << endl; //debug
+	string line;
+	if (file_exist("subjectScore.txt")) {
+		ifstream infile_subjectScore("subjectScore.txt");
+		string candidate;
+		string sub_sco_stud_no, sub_sco_subid, sub_sco_score, sub_sco_scoreid;
+		char sub_sco_type;
+		cout << setw(15) << left << "Subject ID" << setw(15) << left << "Score" << endl;
+		while (getline(infile_subjectScore, line)) {
+			stringstream stu(line);
+			while (getline(stu, sub_sco_stud_no, ',')) {
+				getline(stu, sub_sco_subid, ',');
+				getline(stu, sub_sco_score, ',');
+				getline(stu, sub_sco_scoreid, ',');
+				stu >> sub_sco_type;
+
+				if (search == sub_sco_stud_no) {
+					cout << setw(15) << left << sub_sco_subid;
+					cout << setw(15) << left << sub_sco_score << endl;
+				}
+			}
+		}
+		infile_subjectScore.close();
+	}
+}

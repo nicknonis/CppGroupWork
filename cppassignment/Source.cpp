@@ -62,7 +62,7 @@ int classMenu(vector<Class*> cla) {
 	char choice;
 	Class* cur_cla = new Class();
 	do {
-		cout << "\nChoose an operation. \n1. Add Class\n2. View Classes\n3. Modify Class\n4. Remove Class\n5. Return\nChoice: ";
+		cout << "\nChoose an operation. \n1. Add Class\n2. View Classes\n3. Modify Class\n4. Remove Class\n5. Search Class\n6. Return\nChoice: ";
 		cin >> choice;
 
 		switch (choice) {
@@ -80,12 +80,15 @@ int classMenu(vector<Class*> cla) {
 			cur_cla->removeClass();
 			break;
 		case '5':
+			cur_cla->searchClass(cur_cla);
+			break;
+		case '6':
 			cout << "Terminating..." << endl;
 			break;
 		default:
 			cout << "\nInvalid option selected! Please select a proper option.\n" << endl;
 		}
-	} while (choice != '5');
+	} while (choice != '6');
 
 	//clean up
 	delete cur_cla;
@@ -178,8 +181,14 @@ int main() {
 	vector<Student*> Stud;
 	vector<Class*> cla;
 	vector<subjectScore*> sco;
+
+	cout <<  " -----------------------------------------------------------" << endl;
+	cout <<  "|Welcome to Taylor's International School student records!  |" << endl;
+	cout <<  "|To begin an operation must be selected from the menu below.|" << endl;
+	cout <<  " -----------------------------------------------------------" << endl;
+
 	do {
-		cout << "Choose an operation: \n1.Subject\n2.Class\n3.Student\n4.Score\n5.Exit\nChoice: ";
+		cout << "\nChoose an operation: \n1.Subject\n2.Class\n3.Student\n4.Score\n5.Exit\nChoice: ";
 		cin >> choice;
 		switch (choice)
 		{

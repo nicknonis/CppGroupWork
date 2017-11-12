@@ -17,13 +17,14 @@ public:
 	Student();
 	Student(int stu_no, string f_name, int class_id, char gen);
 	~Student();
+
 	void operator =(const Student& copy) { //operator overload in case we need to dup.
 		int studentno= copy.studentno;
 		string fullname = copy.fullname;
 		char gender = copy.gender;
 		int classid = copy.classid;
-
 	}
+
 	int getstudentno() {
 		return studentno;
 	}

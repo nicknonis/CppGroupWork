@@ -1,6 +1,0 @@
-999,Nala Bala,M
-123,Apom balik,F
-123123,Noper,F
-8888,Eighty,M
-2222,Two Two,F
-8911,Eight Niner,F

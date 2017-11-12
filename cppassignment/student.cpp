@@ -315,7 +315,7 @@ void Student::searchStudent(Student* cur_new) { //Working! use student ID and it
 		}
 
 		cout << "Final Grade: " << cur_new->getFinalGrade(search) << endl;
-		cout << "If Final Grade is 'N' the student could be missing a classes,subjects or scores " <<  endl;
+		cout << "If Final Grade is 'N' the student could be missing classes,subjects or scores " <<  endl;
 	}
 	
 }
@@ -373,6 +373,11 @@ char Student::getFinalGrade(string search) {// any core subject <60
 				stu >> sub_sco_type;
 
 				if (search == sub_sco_stud_no) {
+					if (stod(sub_sco_score) < 60) {
+						infile_subjectScore.close();
+						grade = 'F';
+						return grade;
+					}
 					totscore += stod(sub_sco_score);
 					ctr++;
 				}
@@ -528,3 +533,4 @@ char ArtStudent::getFinalGrade(string search) { // any core subject <60 && 3 sel
 
 	return grade;
 }
+
