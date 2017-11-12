@@ -8,6 +8,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <limits>
 
 using namespace std;
 
@@ -66,9 +67,15 @@ Student::~Student() {
 
 void Student::addStudent(vector<Student*> stud) { //add file manipulators here to write straight away...
 	char stream;
-
+	
 	cout << "\nEnter Student Number: ";
-	cin >> studentno;
+
+	while (!(cin >> studentno)) {
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Please enter whole numbers only...\nEnter Student Number: " ;
+	}
+	
 	cout << "\nEnter Student Name: ";
 	cin.ignore();
 	getline(cin, fullname);
@@ -155,7 +162,11 @@ void Student::modifyStudent() {
 	char gend;
 
 	cout << "Enter new Student ID: ";
-	cin >> s_id;
+	while (!(cin >> s_id)) {
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Please enter whole numbers only...\nEnter New Student ID: ";
+	}
 	cout << "\nEnter new Student Name: ";
 	cin.ignore();
 	getline(cin, s_name);

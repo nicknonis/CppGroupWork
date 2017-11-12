@@ -101,7 +101,11 @@ void Subject::addSubject(vector<Subject*> sub) {
 	char s_type;
 
 	cout << "\nEnter Subject ID: ";
-	cin >> s_id;
+	while (!(cin >> s_id)) {
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Please enter whole numbers only...\nEnter Subject ID: ";
+	}
 	cout << "\nEnter Subject Name: ";
 	cin.ignore();
 	getline(cin, s_name);
@@ -164,7 +168,11 @@ void Subject::modifySubject(vector<Subject*> sub) { // need to add vector modife
 	char s_type;
 
 	cout << "Enter new Subject ID: ";
-	cin >> s_id;
+	while (!(cin >> s_id)) {
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Please enter whole numbers only...\nEnter new Subject ID: ";
+	}
 	cout << "\nEnter new Subject Name: ";
 	cin.ignore();
 	getline(cin, s_name);

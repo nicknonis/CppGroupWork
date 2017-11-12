@@ -67,23 +67,43 @@ void subjectScore::addScore(vector<subjectScore*> v_sco) { //add file manipulato
 	int f_year;
 
 
-	cout << "\nEnter Year [1/2/3/4/5]: ";
-	cin >> f_year;
-	if (f_year == 4 || f_year == 5) {
-		do {
-			cout << "\nEnter Stream [Art = A/Science = S]: ";
-			cin >> stream;
-		} while (stream != 'A' && stream != 'S');
-	}else{
-		stream = 'N';
-	}
+	do {
+		cout << "\nEnter Year [1/2/3/4/5]: ";
+		while (!(cin >> f_year)) {
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << "Please enter whole numbers only...\nEnter Year [1/2/3/4/5]: ";
+		}
+		if (f_year == 4 || f_year == 5) {
+			do {
+				cout << "\nEnter Stream [Art = A/Science = S]: ";
+				cin >> stream;
+			} while (stream != 'A' && stream != 'S');
+		}
+		else if (f_year == 1 || f_year == 2 || f_year == 3) {
+			stream = 'N';
+		}
+	} while (f_year != 1 && f_year != 2 && f_year != 3 && f_year != 4 && f_year != 5);
+	cout << endl;
 
 	cout << "\nEnter Student Number: ";
-	cin >> studentno;
+	while (!(cin >> studentno)) {
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Please enter whole numbers only...\nEnter Student Number: ";
+	}
 	cout << "\nEnter Subject ID: ";
-	cin>> subjectid;
+	while (!(cin >> subjectid)) {
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Please enter whole numbers only...\nSubject ID: ";
+	}
 	cout << "\nEnter Score ID: ";
-	cin >> scoreid;
+		while (!(cin >> scoreid)) {
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Please enter whole numbers only...\nEnter Score ID: ";
+	}
 	cout << "\nEnter Score: ";
 	cin >> score;
 
@@ -149,24 +169,42 @@ void subjectScore::modifyScore() {
 	char strea;
 
 	cout << "Enter new Student ID: ";
-	cin >> s_id;
+	while (!(cin >> s_id)) {
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Please enter whole numbers only...\nEnter new Student ID: ";
+	}
 	cout << "\nEnter new Score ID: ";
-	cin >> score_id;
+	while (!(cin >> score_id)) {
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Please enter whole numbers only...\nEnter new Score ID: ";
+	}
 	cout << "\nEnter new Subject ID: ";
-	cin >> sub_id;
+		while (!(cin >> sub_id)) {
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Please enter whole numbers only...\nEnter new Subject ID: ";
+	}
 	cout << "\nEnter new Score: ";
 	cin >> scor;
+	do {
 	cout << "\nEnter Year [1/2/3/4/5]: ";
-	cin >> f_year;
-	if (f_year == 4 || f_year == 5) {
-		do {
-			cout << "\nEnter Stream [Art = A/Science = S]: ";
-			cin >> strea;
-		} while (strea != 'A' && strea != 'S');
-	}
-	else {
-		strea = 'N';
-	}
+		while (!(cin >> f_year)) {
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << "Please enter whole numbers only...\nEnter Year [1/2/3/4/5]: ";
+		}
+		if (f_year == 4 || f_year == 5) {
+			do {
+				cout << "\nEnter Stream [Art = A/Science = S]: ";
+				cin >> strea;
+			} while (strea != 'A' && strea != 'S');
+		}
+		else if (f_year == 1 ||  f_year == 2 || f_year ==3){
+			strea = 'N';
+		}
+	} while (f_year != 1 && f_year != 2 && f_year != 3 && f_year != 4 && f_year != 5);
 	cout << endl;
 
 	ofstream outfile("subjectScore.txt", ios_base::app);

@@ -7,3 +7,4 @@
 6007,Chi Cheong Fun,1501,F
 6008,Pls no More Bro,1100,M
 6009,Fatin bin Taktau,1100,F
+6010,Mike Tyson,1100,M

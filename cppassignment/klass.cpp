@@ -96,13 +96,21 @@ void Class::addClass(vector<Class*> sub) {
 	char y_grade;
 
 	cout << "\nEnter Class ID: ";
-	cin >> c_id;
+	while (!(cin >> c_id)) {
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Please enter whole numbers only...\nEnter Class ID: ";
+	}
 	cout << "\nEnter Class Name: ";
 	cin.ignore();
 	getline(cin, c_name);
 	do {
 		cout << "\nEnter Year Form [1/2/3/4/5]: ";
-		cin >> y_year;
+		while (!(cin >>y_year)) {
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << "Please enter whole numbers only...\nEnter Year Form[1/2/3/4/5]: ";
+		}
 	} while (y_year != 1 && y_year != 2 && y_year != 3 && y_year != 4 && y_year != 5);
 	if (y_year == 1 || y_year == 2 || y_year == 3)
 		y_grade = 'L';
@@ -173,13 +181,21 @@ void Class::modifyClass(vector<Class*> cla) { // need to add vector modifer too.
 	char y_grade;
 
 	cout << "\nEnter new Class ID: ";
-	cin >> c_id;
+	while (!(cin >> c_id)) {
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Please enter whole numbers only...\nEnter new Class ID: ";
+	}
 	cout << "\nEnter new Class Name: ";
 	cin.ignore();
 	getline(cin, c_name);
 	do {
 		cout << "\nEnter new Year Form [1/2/3/4/5]: ";
-		cin >> y_year;
+		while (!(cin >> y_year)) {
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << "Please enter whole numbers only...\nEnter new Year Form[1/2/3/4/5]: ";
+		}
 	} while (y_year != 1 && y_year != 2 && y_year != 3 && y_year != 4 && y_year != 5);
 	if (y_year == 1 || y_year == 2 || y_year == 3)
 		y_grade = 'L';
